@@ -1,0 +1,8 @@
+ws/*
+rosbag2_2023_11_20-19_15_29/
+workspace/map/keyframe_coordinates
+workspace/map/keyframes/
+workspace/map/shortcut
+workspace/map/checkpoints
+workspace/map/venv
+.idea

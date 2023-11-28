@@ -1,0 +1,31 @@
+version: "3.8"
+services:
+    vio:
+        network_mode: host
+        stdin_open: true # docker run -i
+        tty: true        # docker run -t
+        environment:
+            - SDL_VIDEODRIVER=x11
+            - DISPLAY=$DISPLAY
+            - PYTHONUNBUFFERED=1
+            - DISPLAY                      # GUI related
+            - QT_X11_NO_MITSHM=1                # GUI related
+            - NVIDIA_VISIBLE_DEVICES=all        # GUI related
+            - NVIDIA_DRIVER_CAPABILITIES=all    # GUI related
+        privileged: true                        # GUI related
+        volumes:
+            - '$HOME/git/docker/docker_cat_ws:/docker_cat_ws'
+            - '$HOME/.Xauthority:/root/.Xauthority:rw'
+            -  .:/home/vio/
+            -  ./workspace:/home/carla/workspace
+            - /tmp/.X11-unix/:/tmp/.X11-unix/
+        devices:
+            - '/dev/dri:/dev/dri'
+        build:
+            context: .
+
+
+
+
+
+
